@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="logoBumpin.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="FART0000" x="0" y="0" width="1215" height="450"/>
+	<SubTexture name="FART0001" x="1215" y="0" width="1142" height="415" frameX="-34" frameY="-13" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0002" x="2357" y="0" width="1079" height="387" frameX="-64" frameY="-23" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0003" x="0" y="450" width="1027" height="364" frameX="-88" frameY="-32" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0004" x="1027" y="450" width="987" height="347" frameX="-107" frameY="-38" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0005" x="2014" y="450" width="958" height="334" frameX="-121" frameY="-43" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0006" x="2972" y="450" width="941" height="329" frameX="-129" frameY="-45" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0007" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0008" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0009" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0010" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0011" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0012" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0013" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+	<SubTexture name="FART0014" x="0" y="814" width="936" height="327" frameX="-131" frameY="-46" frameWidth="1215" frameHeight="450"/>
+</TextureAtlas>
