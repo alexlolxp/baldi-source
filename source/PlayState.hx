@@ -128,6 +128,8 @@ class PlayState extends MusicBeatState
 
 	private var camFollow:FlxObject;
 
+	private var screenShake:Bool = false;
+
 	private static var prevCamFollow:FlxObject;
 
 	public static var strumLineNotes:FlxTypedGroup<FlxSprite> = null;
@@ -1616,6 +1618,33 @@ class PlayState extends MusicBeatState
 				}
 		}
 
+		function glitchyWoh()//dismissal jumpcscare shit
+		{
+			trace('haha spooky static');
+
+			var ahh:FlxSprite = new FlxSprite().loadGraphic(Paths.image('da schoolhouse/baldi/spookystatic', 'shared'));
+			ahh.setGraphicSize(FlxG.width, FlxG.height);
+			ahh.screenCenter();
+			ahh.cameras = [camHUD];
+			add(ahh);
+
+			var jump:FlxSprite = new FlxSprite().loadGraphic(Paths.image('da schoolhouse/baldi/baldispook', 'shared'));
+			jump.setGraphicSize(FlxG.width, FlxG.height);
+			jump.screenCenter();
+			jump.cameras = [camHUD];
+			add(jump);
+
+			screenShake = true;
+
+			new FlxTimer().start(0.4, function(tmr:FlxTimer)
+			{
+				trace('rip static :(');
+				remove(ahh);
+				remove(jump);
+				screenShake = false;
+			});
+		}
+
 		function cancel(mathTimer):Void
 		{}
 		
@@ -2170,6 +2199,11 @@ class PlayState extends MusicBeatState
 		perfectMode = false;
 		#end
 
+		if (screenShake)
+			{
+				FlxG.camera.shake(0.005, 0.10);
+			}
+
 		//if (PlayStateChangeables.botPlay && FlxG.keys.justPressed.ONE)
 			//camHUD.visible = !camHUD.visible;
 
@@ -2703,6 +2737,21 @@ class PlayState extends MusicBeatState
 								add(dad);
 						}
 				}
+			
+				if (curSong == 'Dismissal')
+					{
+						switch (curStep)
+							{
+								case 380:
+									glitchyWoh();
+								case 956:
+									glitchyWoh();
+								case 1084:
+									glitchyWoh();
+								case 1212:
+									glitchyWoh();
+							}
+					}
 
 		if (health <= 0)
 		{
