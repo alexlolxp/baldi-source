@@ -1734,6 +1734,7 @@ class PlayState extends MusicBeatState
 					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
 					
 					probText.text = "9 + 10 = ?";
+					// 21!!!! no cap
 				}
 			else if (probchosen == '4 - 0')
 				{
