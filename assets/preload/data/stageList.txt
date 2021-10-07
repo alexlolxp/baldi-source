@@ -5,6 +5,6 @@ limo
 mall
 mallEvil
 school
-schoolEvil
+sweepbg
 classroom
 glitchy

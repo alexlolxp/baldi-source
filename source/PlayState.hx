@@ -42,6 +42,7 @@ import flixel.addons.effects.FlxTrailArea;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -103,7 +104,7 @@ class PlayState extends MusicBeatState
 
 	var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
-	
+
 	#if windows
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
@@ -738,6 +739,34 @@ class PlayState extends MusicBeatState
 						stageCurtains.active = false;
 	
 						add(stageCurtains);
+				}
+			case 'sweepbg':
+				{
+						defaultCamZoom = 0.8;
+						curStage = 'sweepbg';
+						var wall:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_wall'));
+						wall.antialiasing = true;
+						wall.scrollFactor.set(0.9, 0.9);
+						wall.velocity.x = 800
+						add(wall);
+	
+						var door:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_dor'));
+						door.antialiasing = true;
+						door.scrollFactor.set(0.9, 0.9);
+						door.velocity.x = 800
+						add(door);
+	
+						var locker:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_red'));
+						locker.antialiasing = true;
+						locker.scrollFactor.set(0.9, 0.9);
+						locker.velocity.x = 800
+						add(locker);
+
+						var ground:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_ground'));
+						ground.antialiasing = true;
+						ground.scrollFactor.set(0.9, 0.9);
+						ground.velocity.x = 800
+						add(ground);
 				}
 			case 'classroom':
 				{
