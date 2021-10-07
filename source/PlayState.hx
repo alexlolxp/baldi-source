@@ -745,25 +745,39 @@ class PlayState extends MusicBeatState
 						defaultCamZoom = 0.8;
 						curStage = 'sweepbg';
 
-						var wall:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_wall'),0,0,true,false,0,0);
+						var wall:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_wall'));
+						wall.setGraphicSize(Std.int(wall.width * 1.1));
+						wall.updateHitbox();
 						wall.antialiasing = true;
-						wall.velocity.x = 200;
+						wall.scrollFactor.set(0.9, 0.9);
+						wall.active = false;
 						add(wall);
 	
-						var door:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_dor'),0,0,true,false,0,0);
+						var door:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_dor'));
+						door.setGraphicSize(Std.int(door.width * 1.1));
+						door.updateHitbox();
 						door.antialiasing = true;
-						door.velocity.x = 200;
+						door.scrollFactor.set(0.9, 0.9);
+						door.active = false;
 						add(door);
 	
-						var locker:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_red'),0,0,true,false,0,0);
+						var locker:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_red'));
+						locker.setGraphicSize(Std.int(locker.width * 1.1));
+						locker.updateHitbox();
 						locker.antialiasing = true;
-						locker.velocity.x = 200;
+						locker.scrollFactor.set(0.9, 0.9);
+						locker.active = false;
 						add(locker);
 
-						var ground:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_ground'),0,0,true,false,0,0);
+						var ground:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_ground'));
+						ground.setGraphicSize(Std.int(ground.width * 1.1));
+						ground.updateHitbox();
 						ground.antialiasing = true;
-						ground.velocity.x = 200;
+						ground.scrollFactor.set(0.9, 0.9);
+						ground.active = false;
 						add(ground);
+
+						// I was going to use the FlxBackdrop but I suck at coding, that's the story
 				}
 			case 'classroom':
 				{
