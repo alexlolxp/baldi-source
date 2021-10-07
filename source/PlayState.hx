@@ -746,25 +746,21 @@ class PlayState extends MusicBeatState
 						curStage = 'sweepbg';
 						var wall:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_wall'));
 						wall.antialiasing = true;
-						wall.scrollFactor.set(0.9, 0.9);
 						wall.velocity.x = 800
 						add(wall);
 	
-						var door:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_dor'));
+						var door:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_dor'));
 						door.antialiasing = true;
-						door.scrollFactor.set(0.9, 0.9);
 						door.velocity.x = 800
 						add(door);
 	
 						var locker:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_red'));
 						locker.antialiasing = true;
-						locker.scrollFactor.set(0.9, 0.9);
 						locker.velocity.x = 800
 						add(locker);
 
 						var ground:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_ground'));
 						ground.antialiasing = true;
-						ground.scrollFactor.set(0.9, 0.9);
 						ground.velocity.x = 800
 						add(ground);
 				}
