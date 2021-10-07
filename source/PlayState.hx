@@ -744,24 +744,25 @@ class PlayState extends MusicBeatState
 				{
 						defaultCamZoom = 0.8;
 						curStage = 'sweepbg';
-						var wall:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_wall'));
+
+						var wall:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_wall'),0,0,true,false,0,0);
 						wall.antialiasing = true;
-						wall.velocity.x = 800
+						wall.velocity.x = 200;
 						add(wall);
 	
-						var door:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_dor'));
+						var door:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_dor'),0,0,true,false,0,0);
 						door.antialiasing = true;
-						door.velocity.x = 800
+						door.velocity.x = 200;
 						add(door);
 	
-						var locker:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_red'));
+						var locker:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_red'),0,0,true,false,0,0);
 						locker.antialiasing = true;
-						locker.velocity.x = 800
+						locker.velocity.x = 200;
 						add(locker);
 
-						var ground:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_ground'));
+						var ground:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_ground'),0,0,true,false,0,0);
 						ground.antialiasing = true;
-						ground.velocity.x = 800
+						ground.velocity.x = 200;
 						add(ground);
 				}
 			case 'classroom':
