@@ -42,7 +42,6 @@ import flixel.addons.effects.FlxTrailArea;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.addons.display.FlxBackdrop;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -104,7 +103,7 @@ class PlayState extends MusicBeatState
 
 	var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
-
+	
 	#if windows
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
@@ -128,8 +127,6 @@ class PlayState extends MusicBeatState
 	private var curSection:Int = 0;
 
 	private var camFollow:FlxObject;
-
-	private var screenShake:Bool = false;
 
 	private static var prevCamFollow:FlxObject;
 
@@ -739,30 +736,6 @@ class PlayState extends MusicBeatState
 						stageCurtains.active = false;
 	
 						add(stageCurtains);
-				}
-			case 'sweepbg':
-				{
-						defaultCamZoom = 0.8;
-						curStage = 'sweepbg';
-						var wall:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/bgs/sweep/runr_wall'));
-						wall.antialiasing = true;
-						wall.velocity.x = 800
-						add(wall);
-	
-						var door:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_dor'),0,0,true,false,0,0);
-						door.antialiasing = true;
-						door.velocity.x = 200;
-						add(door);
-	
-						var locker:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_red'),0,0,true,false,0,0);
-						locker.antialiasing = true;
-						locker.velocity.x = 200;
-						add(locker);
-
-						var ground:FlxBackdrop = new FlxBackdrop(Paths.image('da schoolhouse/bgs/sweep/runr_ground'),0,0,true,false,0,0);
-						ground.antialiasing = true;
-						ground.velocity.x = 200;
-						add(ground);
 				}
 			case 'classroom':
 				{
@@ -1594,259 +1567,10 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
-	function yctpvisible()
-		{
-			var yctp:FlxSprite = new FlxSprite(-73, 425).loadGraphic(Paths.image('da schoolhouse/baldi/yctp', 'shared'));
-			yctp.updateHitbox();
-			yctp.scrollFactor.x = 0;
-			yctp.scrollFactor.y = 0;
-			yctp.antialiasing = true;
-			add(yctp);
-	
-			var shit:Array<String> = ['shittytitty'];
-			var piss:String = shit[FlxG.random.int(0, 0)];
-	
-			if (piss == 'shittytitty')
-				{
-					yctp.visible = true;
-				}
-		}
-
-		public var probText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 40);
-		public var probTextLong = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 30);
-
-		public var problems:Array<String>;
-		public var probchosen:String;
-
-		public var yctpOn:Bool = true;
-
-		public function mathOn()
-		{
-			yctpOn = true;
-
-			if (yctpOn = true)
-				{
-					mathnoo();
-					trace('my life be like oo aa');
-				}
-		}
-
-		public function mathOff()
-		{
-			yctpOn = false;
-
-			if (yctpOn = false)
-				{
-					remove(probText);
-					trace('joe mama XD haha');
-					cancel(mathTimer);
-				}
-		}
-
-		function glitchyWoh()//dismissal jumpcscare shit
-		{
-			trace('haha spooky static');
-
-			var ahh:FlxSprite = new FlxSprite();
-			ahh.frames = Paths.getSparrowAtlas('da schoolhouse/baldi/spookystatic', 'shared');
-			ahh.animation.addByPrefix('spooky', 'static', 24);
-			ahh.animation.play('spooky');
-			ahh.setGraphicSize(FlxG.width, FlxG.height);
-			ahh.screenCenter();
-			ahh.cameras = [camHUD];
-			add(ahh);
-
-			var jump:FlxSprite = new FlxSprite().loadGraphic(Paths.image('da schoolhouse/baldi/baldispook', 'shared'));
-			jump.setGraphicSize(FlxG.width, FlxG.height);
-			jump.screenCenter();
-			jump.cameras = [camHUD];
-			add(jump);
-
-			screenShake = true;
-
-			new FlxTimer().start(0.4, function(tmr:FlxTimer)
-			{
-				trace('rip static :(');
-				remove(ahh);
-				remove(jump);
-				screenShake = false;
-			});
-		}
-
 		function cancel(mathTimer):Void
 		{}
 		
 		public var mathTimer:FlxTimer;
-
-	public function mathnoo() //yctp pad code (mostly just the text but like yuh)
-	{
-	        
-			var boom:FlxSound = new FlxSound().loadEmbedded(Paths.sound('da schoolhouse/baldi/boom','shared')); //sound effect
-
-			problems = ['4 + 2', '7 + 7', '6 + 3', '9 + 10', '4 - 0', '134 + 110', '21 - 20', '9 - 7', '5 + 1 - 4', '1 + 1 + 1 + 1', '2 + 1 + 3 + 1', '7 - 6', '4 + 9 - 9', '6 + 1 + 2 - 6', '1 x 3 - 2', '14 ÷ 7' , '4 ÷ 4', '4 ÷ 2', '2 x 1', '8 ÷ 4', '16 ÷ 16', '3 x 4'];
-			probchosen = problems[FlxG.random.int(0, 0)]; //here are all the questions in an array, plugged into a randomizer
-
-
-			probText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 40);
-			probText.setFormat(Paths.font("comic.ttf"), 40, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-			probText.scrollFactor.set();
-			probText.x = -530;
-			probText.y = 550;
-			probText.alpha = 1;
-			probText.visible = true;
-			add(probText); //text code
-
-			if (probchosen == '4 + 2') //if chosen problem
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-
-					probText.text = "4 + 2 = ?"; //show this text
-
-					trace("wowie"); //trace in prompt
-
-						new FlxTimer().start(5, function(tmr:FlxTimer) //after five seconds, damage the player
-						{
-							remove(probText);
-							health -= 0.1;
-						});
-				} //repeat 21 times! :)
-			
-			if (probchosen == '7 + 7')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "7 + 7 = ?";
-
-					new FlxTimer().start(5, function(tmr:FlxTimer)
-						{
-							remove(probText);
-							health -= 0.1;
-						});
-				}
-			else if (probchosen == '6 + 3')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "6 + 3 = ?";
-				}
-			else if (probchosen == '9 + 10')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "9 + 10 = ?";
-					// 21!!!! no cap
-				}
-			else if (probchosen == '4 - 0')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "4 - 0 = ?";
-				}
-			else if (probchosen == '134 + 110')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "134 + 110 = ?";
-				}
-			else if (probchosen == '21 - 20')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "21 - 20 = ?";
-				}
-			else if (probchosen == '9 - 7')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "9 - 7 = ?";
-				}
-			else if (probchosen == '5 + 1 - 4')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "5 + 1 - 4 = ?";
-				}
-			else if (probchosen == '1 + 1 + 1 + 1')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "1+1+1+1 = ?";
-				}
-			else if (probchosen == '2 - 1 + 3 + 1')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probTextLong.text = "2-1+3+1 = ?";
-				}
-			else if (probchosen == '7 - 6')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "7 - 6 = ?";
-				}
-			else if (probchosen == '4 + 9 - 9')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "4 + 9 - 9 = ?";
-				}
-			else if (probchosen == '6 + 1 + 2 - 6')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "6+1+2-6 = ?";
-				}
-			else if (probchosen == '1 x 3 - 2')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "1 x 3 - 2 = ?";
-				}
-			else if (probchosen == '14 ÷ 7')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "14 ÷ 7 = ?";
-				}
-			else if (probchosen == '4 ÷ 4')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "4 ÷ 4 = ?";
-				}
-			else if (probchosen == '4 ÷ 2')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "4 ÷ 2 = ?";
-				}
-			else if (probchosen == '2 x 1')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "2 x 1 = ?";
-				}
-			else if (probchosen == '8 ÷ 4')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "8 ÷ 4 = ?";
-				}
-			else if (probchosen == '16 ÷ 16')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "16 ÷ 16 = ?";
-				}
-			else if (probchosen == '3 x 4')
-				{
-					//FlxG.sound.play(Paths.sound('da schoolhouse/baldi/boom', 'shared'));
-					
-					probText.text = "3 x 4 = ?";
-				}
-	}
-	
-	var debugNum:Int = 0;
 
 	private function generateSong(dataPath:String):Void
 	{
@@ -1910,56 +1634,54 @@ class PlayState extends MusicBeatState
 			var coolSection:Int = Std.int(section.lengthInSteps / 4);
 
 			for (songNotes in section.sectionNotes)
-			{
-				var daStrumTime:Float = songNotes[0] + FlxG.save.data.offset + songOffset;
-				if (daStrumTime < 0)
-					daStrumTime = 0;
-				var daNoteData:Int = Std.int(songNotes[1] % 4);
-
-				var gottaHitNote:Bool = section.mustHitSection;
-
-				if (songNotes[1] > 3)
 				{
-					gottaHitNote = !section.mustHitSection;
-				}
-
-				var oldNote:Note;
-				if (unspawnNotes.length > 0)
-					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
-				else
-					oldNote = null;
-
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
-
-				if (!gottaHitNote && PlayStateChangeables.Optimize)
-					continue;
-
-				swagNote.sustainLength = songNotes[2];
-				swagNote.scrollFactor.set(0, 0);
-
+					var daStrumTime:Float = songNotes[0] + FlxG.save.data.offset + songOffset;
+					if (daStrumTime < 0)
+						daStrumTime = 0;
+					var daNoteData:Int = Std.int(songNotes[1] % 4);
+ 
+					var gottaHitNote:Bool = section.mustHitSection;
+ 
+					if (songNotes[1] > 3)
+					{
+						gottaHitNote = !section.mustHitSection;
+					}
+ 
+					var oldNote:Note;
+					if (unspawnNotes.length > 0)
+						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
+					else
+						oldNote = null;
+ 
+					var daType = songNotes[3];
+					var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, daType);
+					swagNote.sustainLength = songNotes[2];
+ 
+					swagNote.scrollFactor.set(0, 0);	
+ 
 				var susLength:Float = swagNote.sustainLength;
-
+ 
 				susLength = susLength / Conductor.stepCrochet;
 				unspawnNotes.push(swagNote);
-
+ 
 				for (susNote in 0...Math.floor(susLength))
 				{
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
-
+ 
 					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
 					sustainNote.scrollFactor.set();
 					unspawnNotes.push(sustainNote);
-
+ 
 					sustainNote.mustPress = gottaHitNote;
-
+ 
 					if (sustainNote.mustPress)
 					{
 						sustainNote.x += FlxG.width / 2; // general offset
 					}
 				}
-
+ 
 				swagNote.mustPress = gottaHitNote;
-
+ 
 				if (swagNote.mustPress)
 				{
 					swagNote.x += FlxG.width / 2; // general offset
@@ -2228,11 +1950,6 @@ class PlayState extends MusicBeatState
 		perfectMode = false;
 		#end
 
-		if (screenShake)
-			{
-				FlxG.camera.shake(0.005, 0.10);
-			}
-
 		//if (PlayStateChangeables.botPlay && FlxG.keys.justPressed.ONE)
 			//camHUD.visible = !camHUD.visible;
 
@@ -2438,7 +2155,9 @@ class PlayState extends MusicBeatState
 					FlxG.stage.window.onFocusIn.remove(focusIn);
 					removedVideo = true;
 				}
-
+			}
+		if (FlxG.keys.justPressed.G)
+		{
 			FlxG.switchState(new AnimationDebug(SONG.player2));
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN,handleInput);
 			#if windows
@@ -2450,7 +2169,7 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		if (FlxG.keys.justPressed.ZERO)
+		if (FlxG.keys.justPressed.N)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player1));
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN,handleInput);
@@ -2500,38 +2219,6 @@ class PlayState extends MusicBeatState
 			}
 
 			// Conductor.lastSongPos = FlxG.sound.music.time;
-		}
-
-		var pressSpace = (FlxG.keys.justPressed.SPACE);
-
-		/*if (pressSpace)
-		{
-			health += 1;
-		}
-		*/
-		var press0 = (FlxG.keys.justPressed.ZERO);
-		var press1 = (FlxG.keys.justPressed.ONE);
-		var press2 = (FlxG.keys.justPressed.TWO);
-		var press3 = (FlxG.keys.justPressed.THREE);
-		var press4 = (FlxG.keys.justPressed.FOUR);
-		var press5 = (FlxG.keys.justPressed.FIVE);
-		var press6 = (FlxG.keys.justPressed.SIX);
-		var press7 = (FlxG.keys.justPressed.SEVEN);
-		var press8 = (FlxG.keys.justPressed.EIGHT);
-		var press9 = (FlxG.keys.justPressed.NINE);
-
-		if (probchosen == '4 + 2' && press6)
-		{
-			remove(probText);
-			mathOff();
-			trace("lol");
-		}
-
-		if (probchosen == '4 + 2' && press0 || press1 || press2 || press3 || press4 || press5 || press7 || press8 || press9)
-		{
-			remove(probText);
-			trace ("you stupid");
-			health -= 1.75;
 		}
 
 		if (generatedMusic && PlayState.SONG.notes[Std.int(curStep / 16)] != null)
@@ -2745,16 +2432,6 @@ class PlayState extends MusicBeatState
 					// FlxG.switchState(new PlayState());
 			}
 		}
-
-		 if (curSong == 'Basics')
-			{
-				switch (curStep)
-					{
-						case 0:
-							yctpvisible();
-							mathOn();
-					}
-			}
 		
 			if (curSong == 'Lesson')
 				{
@@ -2762,25 +2439,10 @@ class PlayState extends MusicBeatState
 						{
 							case 1152:
 								remove(dad);
-								dad = new Character (-400, 100, 'baldi');
+								dad = new Character (-400, 10, 'baldi');
 								add(dad);
 						}
 				}
-			
-				if (curSong == 'Dismissal')
-					{
-						switch (curStep)
-							{
-								case 380:
-									glitchyWoh();
-								case 956:
-									glitchyWoh();
-								case 1084:
-									glitchyWoh();
-								case 1212:
-									glitchyWoh();
-							}
-					}
 
 		if (health <= 0)
 		{
@@ -3031,26 +2693,17 @@ class PlayState extends MusicBeatState
 							}
 							else
 							{
-								if (loadRep && daNote.isSustainNote)
-								{
-									// im tired and lazy this sucks I know i'm dumb
-									if (findByTime(daNote.strumTime) != null)
-										totalNotesHit += 1;
-									else
+								if (daNote.noteType == 2)
+									{
+									 health += 0;
+									}
+								if (daNote.noteType == 1 || daNote.noteType == 0)
 									{
 										health -= 0.075;
 										vocals.volume = 0;
 										if (theFunne)
 											noteMiss(daNote.noteData, daNote);
 									}
-								}
-								else
-								{
-									health -= 0.075;
-									vocals.volume = 0;
-									if (theFunne)
-										noteMiss(daNote.noteData, daNote);
-								}
 							}
 		
 							daNote.visible = false;
@@ -3278,38 +2931,73 @@ class PlayState extends MusicBeatState
 
 			switch(daRating)
 			{
-				case 'shit':
-					score = -300;
-					combo = 0;
-					misses++;
-					health -= 0.2;
-					ss = false;
-					shits++;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit -= 1;
-				case 'bad':
-					daRating = 'bad';
-					score = 0;
-					health -= 0.06;
-					ss = false;
-					bads++;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 0.50;
-				case 'good':
-					daRating = 'good';
-					score = 200;
-					ss = false;
-					goods++;
-					if (health < 2)
-						health += 0.04;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 0.75;
-				case 'sick':
-					if (health < 2)
-						health += 0.1;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 1;
-					sicks++;
+					case 'shit':
+						if (daNote.noteType == 2)
+							{
+								health -= 10;
+								score = -300;
+								combo = 0;
+								misses++;
+								ss = false;
+								shits++;
+								if (FlxG.save.data.accuracyMod == 0)
+									totalNotesHit -= 0.25;
+							}
+						if (daNote.noteType == 1 || daNote.noteType == 0)
+							{
+								score = -300;
+								combo = 0;
+								misses++;
+								health -= 0.2;
+								ss = false;
+								shits++;
+								if (FlxG.save.data.accuracyMod == 0)
+									totalNotesHit += 0.25;
+							}
+					case 'bad':
+						if (daNote.noteType == 2)
+							{
+								health -= 10;
+							}
+						if (daNote.noteType == 1 || daNote.noteType == 0)
+							{
+								daRating = 'bad';
+								score = 0;
+								health -= 0.06;
+								ss = false;
+								bads++;
+								if (FlxG.save.data.accuracyMod == 0)
+									totalNotesHit += 0.50;
+							}
+					case 'good':
+						if (daNote.noteType == 2)
+							{
+								health -= 10;
+							}
+						if (daNote.noteType == 1 || daNote.noteType == 0)
+							{
+								daRating = 'good';
+								score = 200;
+								ss = false;
+								goods++;
+								if (health < 2)
+									health += 0.04;
+								if (FlxG.save.data.accuracyMod == 0)
+									totalNotesHit += 0.75;
+							}
+					case 'sick':
+						if (daNote.noteType == 2)
+							{
+								health -= 10;
+							}
+						if (daNote.noteType == 1 || daNote.noteType == 0)
+							{
+								if (health < 2)
+									health += 0.1;
+								if (FlxG.save.data.accuracyMod == 0)
+									totalNotesHit += 1;
+								sicks++;	
+							}					
 			}
 
 			// trace('Wife accuracy loss: ' + wife + ' | Rating: ' + daRating + ' | Score: ' + score + ' | Weight: ' + (1 - wife));
