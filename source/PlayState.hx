@@ -128,6 +128,8 @@ class PlayState extends MusicBeatState
 
 	private var camFollow:FlxObject;
 
+	private var screenShake:Bool = false;
+
 	private static var prevCamFollow:FlxObject;
 
 	public static var strumLineNotes:FlxTypedGroup<FlxSprite> = null;
@@ -1567,6 +1569,47 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
+		function baldimad(name:String)
+		{
+			var olddadx = dad.x;
+			var olddady = dad.y;
+			remove(dad);
+			dad = new Character(olddadx, olddady, name);
+			add(dad);
+			iconP2.animation.play(name);
+			trace('baldimad >:(');
+		}
+
+		function glitchyWoh()//dismissal jumpcscare shit
+		{
+			trace('haha spooky static');
+
+			var ahh:FlxSprite = new FlxSprite();
+			ahh.frames = Paths.getSparrowAtlas('da schoolhouse/baldi/spookystatic', 'shared');
+			ahh.animation.addByPrefix('spooky', 'static', 24);
+			ahh.animation.play('spooky');
+			ahh.setGraphicSize(FlxG.width, FlxG.height);
+			ahh.screenCenter();
+			ahh.cameras = [camHUD];
+			add(ahh);
+
+			var jump:FlxSprite = new FlxSprite().loadGraphic(Paths.image('da schoolhouse/baldi/baldispook', 'shared'));
+			jump.setGraphicSize(FlxG.width, FlxG.height);
+			jump.screenCenter();
+			jump.cameras = [camHUD];
+			add(jump);
+
+			screenShake = true;
+
+			new FlxTimer().start(0.4, function(tmr:FlxTimer)
+			{
+				trace('rip static :(');
+				remove(ahh);
+				remove(jump);
+				screenShake = false;
+			});
+		}
+
 		function cancel(mathTimer):Void
 		{}
 		
@@ -1965,7 +2008,10 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-
+			if (screenShake)
+				{
+					FlxG.camera.shake(0.005, 0.10);
+				}
 		
 		#if windows
 		if (executeModchart && luaModchart != null && songStarted)
@@ -2438,11 +2484,24 @@ class PlayState extends MusicBeatState
 					switch (curStep)
 						{
 							case 1152:
-								remove(dad);
-								dad = new Character (-400, 10, 'baldi');
-								add(dad);
+								baldimad('baldi');
 						}
 				}
+			
+				if (curSong == 'Dismissal')
+					{
+						switch (curStep)
+							{
+								case 380:
+									glitchyWoh();
+								case 956:
+									glitchyWoh();
+								case 1084:
+									glitchyWoh();
+								case 1212:
+									glitchyWoh();
+							}
+					}
 
 		if (health <= 0)
 		{
@@ -2957,7 +3016,8 @@ class PlayState extends MusicBeatState
 					case 'bad':
 						if (daNote.noteType == 2)
 							{
-								health -= 10;
+								health -= 0.6;
+								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -2972,7 +3032,8 @@ class PlayState extends MusicBeatState
 					case 'good':
 						if (daNote.noteType == 2)
 							{
-								health -= 10;
+								health -= 0.6;
+								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -2988,7 +3049,8 @@ class PlayState extends MusicBeatState
 					case 'sick':
 						if (daNote.noteType == 2)
 							{
-								health -= 10;
+								health -= 0.6;
+								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
