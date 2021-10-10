@@ -42,7 +42,7 @@ import flixel.addons.effects.FlxTrailArea;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.addons.display.FlxBackdrop
+import flixel.addons.display.FlxBackdrop;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -765,7 +765,7 @@ class PlayState extends MusicBeatState
 						table.scrollFactor.set(1.3, 1.3);
 						table.active = false;
 				}
-			case 'sweepbg':
+			/*case 'sweepbg':
 				{
 						defaultCamZoom = 0.9;
 						curStage = 'sweepbg';
@@ -790,7 +790,7 @@ class PlayState extends MusicBeatState
 						add(floor);
 
 						// WHY WONT IT LOADDDDD
-				}
+				}*/
 			case 'glitchy':
 				{
 					defaultCamZoom = 0.7;

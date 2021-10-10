@@ -76,12 +76,7 @@ class Main extends Sprite
 		}
 
 		#if cpp
-		initialState = Caching;
-		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
-		#else
-		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
-		#end
-		addChild(game);
+ 
 		
 		#if !mobile
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
