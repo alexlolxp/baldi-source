@@ -2510,6 +2510,8 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 						{
+							case 1005:
+								boyfriend.playAnim('hey', true);
 							case 1152:
 								baldimad('baldi');
 						}
