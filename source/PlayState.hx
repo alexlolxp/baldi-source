@@ -788,8 +788,12 @@ class PlayState extends MusicBeatState
 						floor.antialiasing = true;
 						floor.velocity.x = 600;
 						add(floor);
+						
+
 
 						// WHY WONT IT LOADDDDD
+
+						// WHY WONT IT LOADDDDD L i killed it loser L L L L -alex
 				}*/
 			case 'glitchy':
 				{
@@ -1596,7 +1600,7 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
-		function baldimad(name:String)
+		function baldimad(name:String)//baldis mad >:((
 		{
 			var olddadx = dad.x;
 			var olddady = dad.y;
@@ -1636,11 +1640,16 @@ class PlayState extends MusicBeatState
 				screenShake = false;
 			});
 		}
-
-		function cancel(mathTimer):Void
-		{}
 		
-		public var mathTimer:FlxTimer;
+		function yctplol()//yctp
+		{
+			var probtext:FlxText = new FlxText();
+			probtext.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			probtext.scrollFactor.set();
+			add(probtext);
+
+			var mathQuestions:Int = 0;
+		}
 
 	private function generateSong(dataPath:String):Void
 	{
@@ -3023,7 +3032,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 2)
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3041,7 +3050,7 @@ class PlayState extends MusicBeatState
 							{
 
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
@@ -3058,7 +3067,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 2)
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3075,7 +3084,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 2)
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
