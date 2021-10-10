@@ -3029,7 +3029,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 2)
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3047,7 +3047,7 @@ class PlayState extends MusicBeatState
 							{
 
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
@@ -3064,7 +3064,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 2)
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3081,7 +3081,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 2)
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-								health -= 0.3;
+								health -= 0.6;
 
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
