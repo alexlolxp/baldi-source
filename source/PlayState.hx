@@ -42,6 +42,7 @@ import flixel.addons.effects.FlxTrailArea;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -763,6 +764,32 @@ class PlayState extends MusicBeatState
 						table.antialiasing = true;
 						table.scrollFactor.set(1.3, 1.3);
 						table.active = false;
+				}
+			case 'sweepbg':
+				{
+						defaultCamZoom = 0.9;
+						curStage = 'sweepbg';
+						var bg:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/runr_wall'));
+						bg.antialiasing = true;
+						bg.velocity.x = 600;
+						add(bg);
+	
+						var lockers:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/runr_red'));
+						lockers.antialiasing = true;
+						lockers.velocity.x = 600;
+						add(lockers);
+
+						var door:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/runr_dor'));
+						door.antialiasing = true;
+						door.velocity.x = 600;
+						add(door);
+	
+						var floor:FlxBackdrop = new FlxBackdrop(-600, -200).loadGraphic(Paths.image('da schoolhouse/runr_ground'));
+						floor.antialiasing = true;
+						floor.velocity.x = 600;
+						add(floor);
+
+						// WHY WONT IT LOADDDDD
 				}
 			case 'glitchy':
 				{
@@ -2483,6 +2510,8 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 						{
+							case 1005:
+								boyfriend.playAnim('hey', true);
 							case 1152:
 								baldimad('baldi');
 						}
@@ -3010,8 +3039,10 @@ class PlayState extends MusicBeatState
 					case 'bad':
 						if (daNote.noteType == 2)
 							{
+
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.3;
+
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3045,6 +3076,7 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.3;
+
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
