@@ -225,7 +225,7 @@ class Character extends FlxSprite
 
 				flipX = true;
 			
-			case 'gf-christmas':
+			case 'gf-chair':
 			
 				tex = Paths.getSparrowAtlas('da schoolhouse/sprites/gfchair', 'shared');
 				frames = tex;
@@ -371,6 +371,16 @@ class Character extends FlxSprite
 					{
 						danced = !danced;
 
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+					}
+				case 'gf-chair':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+							
 						if (danced)
 							playAnim('danceRight');
 						else

@@ -853,6 +853,7 @@ class PlayState extends MusicBeatState
 				case 4: gfCheck = 'gf-car';
 				case 5: gfCheck = 'gf-christmas';
 				case 6: gfCheck = 'gf-pixel';
+				case 7: gfCheck = 'gf-chair';
 			}
 		} else {gfCheck = SONG.gfVersion;}
 
@@ -865,6 +866,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
+			case 'gf-chair':
+				curGf = 'gf-chair';
 			default:
 				curGf = 'gf';
 		}
