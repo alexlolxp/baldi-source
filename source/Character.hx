@@ -110,12 +110,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24);
 				animation.addByPrefix('singDOWN', 'down', 24);
 				animation.addByPrefix('singLEFT', 'left', 24);
+				animation.addByPrefix('math', 'math', 24);
+				animation.addByPrefix('good', 'good', 24);
 	
 				addOffset('idle');
-				addOffset("singUP", 176, -56);
+				addOffset("singUP", 165, 74);
 				addOffset("singRIGHT", 78, 88);
 				addOffset("singLEFT", 101, 84);
 				addOffset("singDOWN", 189, -63);
+				addOffset("math", 11, 4);
+				addOffset("good", -4, 4);
 	
 				playAnim('idle');
 
@@ -192,6 +196,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 				animation.addByPrefix('attack', 'boyfriend attack', 24, false);
+				animation.addByPrefix('ow', 'BF hit', 24, false);
 
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
 				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
@@ -214,10 +219,27 @@ class Character extends FlxSprite
 				addOffset('deathConfirm', 37, 69);
 				addOffset('scared', -4);
 				addOffset('attack', -292, 270);
+				addOffset('ow', -5);
 
 				playAnim('idle');
 
 				flipX = true;
+			
+			case 'gf-christmas':
+			
+				tex = Paths.getSparrowAtlas('da schoolhouse/sprites/gfchair', 'shared');
+				frames = tex;
+
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+
+				addOffset('sad', -2, -2);
+				addOffset('danceLeft', 0, -9);
+				addOffset('danceRight', 0, -9);
+
+				playAnim('danceRight');
+
 			case 'parents-christmas':
 				frames = Paths.getSparrowAtlas('characters/mom_dad_christmas_assets');
 				animation.addByPrefix('idle', 'Parent Christmas Idle', 24, false);
