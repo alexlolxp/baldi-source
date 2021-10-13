@@ -3056,7 +3056,13 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
-							}	
+								screenShake = true;
+
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+								{
+									screenShake = false;
+								});
+							}
 						if (daNote.noteType == 3)
 							{
 								FlxG.switchState(new CreditsState());
@@ -3079,6 +3085,12 @@ class PlayState extends MusicBeatState
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
 								boyfriend.playAnim('ow', true);
+								screenShake = true;
+
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+								{
+									screenShake = false;
+								});
 							}	
 						if (daNote.noteType == 3)
 							{
@@ -3100,6 +3112,12 @@ class PlayState extends MusicBeatState
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
 								boyfriend.playAnim('ow', true);
+								screenShake = true;
+
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+								{
+									screenShake = false;
+								});
 							}	
 						if (daNote.noteType == 3)
 							{
@@ -3126,6 +3144,12 @@ class PlayState extends MusicBeatState
 										FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 										health -= 0.6;
 										boyfriend.playAnim('ow', true);
+										screenShake = true;
+
+										new FlxTimer().start(0.1, function(tmr:FlxTimer)
+										{
+											screenShake = false;
+										});
 									}	
 								if (daNote.noteType == 3)
 									{
