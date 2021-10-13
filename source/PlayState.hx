@@ -3105,7 +3105,6 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.switchState(new CreditsState());
 							}
-							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
 								daRating = 'good';
