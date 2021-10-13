@@ -972,7 +972,7 @@ class PlayState extends MusicBeatState
 			case 'glitchy':
 				if(FlxG.save.data.distractions)
 				{
-					var evilTrail2 = new FlxTrail(dad, null, 2, 24, 0.3, 0.069);
+					var evilTrail2 = new FlxTrail(dad, null, 2, 10, 0.3, 0.069);
 					add(evilTrail2);
 				}
 
@@ -1651,16 +1651,6 @@ class PlayState extends MusicBeatState
 				remove(jump);
 				screenShake = false;
 			});
-		}
-		
-		function yctplol()//yctp
-		{
-			var probtext:FlxText = new FlxText();
-			probtext.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-			probtext.scrollFactor.set();
-			add(probtext);
-
-			var mathQuestions:Int = 0;
 		}
 
 	private function generateSong(dataPath:String):Void
