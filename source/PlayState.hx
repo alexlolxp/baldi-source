@@ -1,5 +1,6 @@
 package;
 
+import haxe.macro.Expr.Case;
 import openfl.ui.KeyLocation;
 import openfl.events.Event;
 import haxe.EnumTools;
@@ -757,6 +758,14 @@ class PlayState extends MusicBeatState
 						floorlol.scrollFactor.set(0.9, 0.9);
 						floorlol.active = false;
 						add(floorlol);
+
+						var chair:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/baldi/baldi_chair'));
+						chair.setGraphicSize(Std.int(chair.width * 1.1));
+						chair.updateHitbox();
+						chair.antialiasing = true;
+						chair.scrollFactor.set(0.9, 0.9);
+						chair.active = false;
+						add(chair);
 	
 						table = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/baldi/baldi_front'));
 						table.setGraphicSize(Std.int(table.width * 0.9));
@@ -844,6 +853,7 @@ class PlayState extends MusicBeatState
 				case 4: gfCheck = 'gf-car';
 				case 5: gfCheck = 'gf-christmas';
 				case 6: gfCheck = 'gf-pixel';
+				case 7: gfCheck = 'gf-chair';
 			}
 		} else {gfCheck = SONG.gfVersion;}
 
@@ -856,6 +866,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
+			case 'gf-chair':
+				curGf = 'gf-chair';
 			default:
 				curGf = 'gf';
 		}
@@ -927,7 +939,7 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 400;
 				dad.x -= 400;
 				dad.y += 100;
-				gf.x += 100;
+				gf.x += 210;
 				gf.y += 100;
 
 			case 'mall':
@@ -2514,6 +2526,17 @@ class PlayState extends MusicBeatState
 					// FlxG.switchState(new PlayState());
 			}
 		}
+
+			if (curSong == 'Basics')
+				{
+					switch (curStep)
+						{
+							case 97:
+								dad.playAnim('math', true);
+							case 632:
+								dad.playAnim('good', true);
+						}
+				}
 		
 			if (curSong == 'Lesson')
 				{
@@ -3037,6 +3060,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								FlxG.switchState(new CreditsState());
+								boyfriend.playAnim('ow', true);
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3054,6 +3078,7 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
+								boyfriend.playAnim('ow', true);
 							}	
 						if (daNote.noteType == 3)
 							{
@@ -3074,10 +3099,12 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
+								boyfriend.playAnim('ow', true);
 							}	
 						if (daNote.noteType == 3)
 							{
 								FlxG.switchState(new CreditsState());
+							}
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3095,10 +3122,16 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
-							}	
-						if (daNote.noteType == 3)
-							{
-								FlxG.switchState(new CreditsState());
+								if (daNote.noteType == 2)
+									{
+										FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
+										health -= 0.6;
+										boyfriend.playAnim('ow', true);
+									}	
+								if (daNote.noteType == 3)
+									{
+										FlxG.switchState(new CreditsState());
+									}
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
