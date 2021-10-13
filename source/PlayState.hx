@@ -2238,7 +2238,7 @@ class PlayState extends MusicBeatState
 					removedVideo = true;
 				}
 			}
-		if (FlxG.keys.justPressed.G)
+		if (FlxG.keys.justPressed.Q)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player2));
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN,handleInput);
@@ -2251,7 +2251,7 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		if (FlxG.keys.justPressed.N)
+		if (FlxG.keys.justPressed.E)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player1));
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN,handleInput);
@@ -2790,7 +2790,7 @@ class PlayState extends MusicBeatState
 							}
 							else
 							{
-								if (daNote.noteType == 2)
+								if (daNote.noteType == 2|| daNote.noteType == 3)
 									{
 									 health += 0;
 									}
@@ -3033,6 +3033,10 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
+							}	
+						if (daNote.noteType == 3)
+							{
+								FlxG.switchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3048,10 +3052,12 @@ class PlayState extends MusicBeatState
 					case 'bad':
 						if (daNote.noteType == 2)
 							{
-
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
-
+							}	
+						if (daNote.noteType == 3)
+							{
+								FlxG.switchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3068,6 +3074,10 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
+							}	
+						if (daNote.noteType == 3)
+							{
+								FlxG.switchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3085,7 +3095,10 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
-
+							}	
+						if (daNote.noteType == 3)
+							{
+								FlxG.switchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
