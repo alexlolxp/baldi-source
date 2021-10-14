@@ -774,6 +774,49 @@ class PlayState extends MusicBeatState
 						table.scrollFactor.set(1.3, 1.3);
 						table.active = false;
 				}
+			case 'unknownfile':
+				{
+						curStage = 'unknownfile';
+	
+						defaultCamZoom = 0.55;
+	
+						var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/staticredbg'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.2, 0.2);
+						bg.setGraphicSize(Std.int(bg.width * 0.8));
+						bg.updateHitbox();
+						add(bg);
+
+						var bgbinary:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/binarycodebg'));
+						bgbinary.antialiasing = true;
+						bgbinary.scrollFactor.set(0.2, 0.2);
+						bgbinary.setGraphicSize(Std.int(bgbinary.width * 0.8));
+						bgbinary.updateHitbox();
+						add(bgbinary);
+	
+						var bg3d:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/3dbinary'));
+						bg3d.antialiasing = true;
+						bg3d.scrollFactor.set(0.36, 0.36);
+						bg3d.setGraphicSize(Std.int(bg3d.width * 0.8));
+						bg3d.updateHitbox();
+						add(bg3d);
+	
+						var glitchy:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/3dbinary'));
+						glitchy.antialiasing = true;
+						glitchy.scrollFactor.set(0.6, 0.6);
+						glitchy.setGraphicSize(Std.int(glitchy.width * 0.8));
+						glitchy.updateHitbox();
+						add(glitchy);
+	
+	
+						var neatfloor:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/neatfloor'));
+						neatfloor.antialiasing = true;
+						neatfloor.setGraphicSize(Std.int(neatfloor.width * 0.8));
+						neatfloor.updateHitbox();
+						add(neatfloor);
+
+						// that moment when you forgot to set position
+				}
 			/*case 'sweepbg':
 				{
 						defaultCamZoom = 0.9;
@@ -804,17 +847,6 @@ class PlayState extends MusicBeatState
 
 						// WHY WONT IT LOADDDDD L i killed it loser L L L L -alex
 				}*/
-			case 'glitchy':
-				{
-					defaultCamZoom = 0.7;
-					curStage = 'glitchy';
-					var paldo:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/paldo/glitchy'));
-					paldo.setGraphicSize(Std.int(paldo.width * 1.1));
-					paldo.antialiasing = true;
-					paldo.scrollFactor.set(0.9, 0.9);
-					paldo.active = false;
-					add(paldo);
-				}
 			default:
 			{
 					defaultCamZoom = 0.9;
