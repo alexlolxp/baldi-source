@@ -778,41 +778,46 @@ class PlayState extends MusicBeatState
 				{
 						curStage = 'unknownfile';
 	
-						defaultCamZoom = 0.55;
+						defaultCamZoom = 0.56;
 	
-						var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/staticredbg'));
+						var bg:FlxSprite = new FlxSprite(-600, -300).loadGraphic(Paths.image('da schoolhouse/piracy/piracy baldi/staticredbg'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.2, 0.2);
 						bg.setGraphicSize(Std.int(bg.width * 0.8));
 						bg.updateHitbox();
+						bg.scale.set(1.2, 1.2);
 						add(bg);
 
-						var bgbinary:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/binarycodebg'));
+						var bgbinary:FlxSprite = new FlxSprite(-600, -300).loadGraphic(Paths.image('da schoolhouse/piracy/piracy baldi/binarycodebg'));
 						bgbinary.antialiasing = true;
 						bgbinary.scrollFactor.set(0.2, 0.2);
 						bgbinary.setGraphicSize(Std.int(bgbinary.width * 0.8));
 						bgbinary.updateHitbox();
+						bgbinary.scale.set(1.2, 1.2);
 						add(bgbinary);
 	
-						var bg3d:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/3dbinary'));
+						var bg3d:FlxSprite = new FlxSprite(-600, -300).loadGraphic(Paths.image('da schoolhouse/piracy/piracy baldi/3dbinary'));
 						bg3d.antialiasing = true;
 						bg3d.scrollFactor.set(0.36, 0.36);
 						bg3d.setGraphicSize(Std.int(bg3d.width * 0.8));
 						bg3d.updateHitbox();
+						bg3d.scale.set(1.2, 1.2);
 						add(bg3d);
 	
-						var glitchy:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/3dbinary'));
+						var glitchy:FlxSprite = new FlxSprite(-600, -300).loadGraphic(Paths.image('da schoolhouse/piracy/piracy baldi/bigF'));
 						glitchy.antialiasing = true;
 						glitchy.scrollFactor.set(0.6, 0.6);
 						glitchy.setGraphicSize(Std.int(glitchy.width * 0.8));
 						glitchy.updateHitbox();
+						glitchy.scale.set(1.2, 1.2);
 						add(glitchy);
 	
 	
-						var neatfloor:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('da schoolhouse/piracy/piracy bald/neatfloor'));
+						var neatfloor:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('da schoolhouse/piracy/piracy baldi/neatfloor'));
 						neatfloor.antialiasing = true;
 						neatfloor.setGraphicSize(Std.int(neatfloor.width * 0.8));
 						neatfloor.updateHitbox();
+						neatfloor.scale.set(1.3, 1.3);
 						add(neatfloor);
 
 						// that moment when you forgot to set position
