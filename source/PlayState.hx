@@ -1398,8 +1398,8 @@ class PlayState extends MusicBeatState
 			switch (swagCounter)
 
 			{
-				case 0:
-					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+				//case 0:
+					//FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					ready.scrollFactor.set();
@@ -3047,6 +3047,8 @@ class PlayState extends MusicBeatState
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
 								screenShake = true;
+								boyfriend.playAnim('ow', true);
+								misses++;
 
 								new FlxTimer().start(0.1, function(tmr:FlxTimer)
 								{
@@ -3056,7 +3058,6 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								FlxG.switchState(new CreditsState());
-								boyfriend.playAnim('ow', true);
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3076,6 +3077,7 @@ class PlayState extends MusicBeatState
 								health -= 0.6;
 								boyfriend.playAnim('ow', true);
 								screenShake = true;
+								misses++;
 
 								new FlxTimer().start(0.1, function(tmr:FlxTimer)
 								{
@@ -3103,6 +3105,7 @@ class PlayState extends MusicBeatState
 								health -= 0.6;
 								boyfriend.playAnim('ow', true);
 								screenShake = true;
+								misses++;
 
 								new FlxTimer().start(0.1, function(tmr:FlxTimer)
 								{
@@ -3129,6 +3132,8 @@ class PlayState extends MusicBeatState
 							{
 								FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
 								health -= 0.6;
+								boyfriend.playAnim('ow', true);
+								misses++;
 								if (daNote.noteType == 2)
 									{
 										FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
