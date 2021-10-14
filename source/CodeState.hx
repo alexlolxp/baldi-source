@@ -68,18 +68,37 @@ import flixel.addons.ui.FlxUIInputText;
 
 class CodeState extends MusicBeatState
 {
-    var codeTyped:FlxInputText;
+var bg:FlxSprite;
+var yctp:FlxSprite;
 
-    override function create() 
+var num1:Int = 0;
+var num2:Int = 0;
+var num3:Int = 0;
+var num4:Int = 0;
+var num5:Int = 0;
+
+var numtext1 = new FlxText(FlxG.width / 6, FlxG.height / 2, 0, '0', 23);
+var numtext2 = new FlxText(FlxG.width / 6, FlxG.height / 2, 0, '0', 23);
+var numtext3 = new FlxText(FlxG.width / 6, FlxG.height / 2, 0, '0', 23);
+var numtext4 = new FlxText(FlxG.width / 6, FlxG.height / 2, 0, '0', 23);
+var numtext5 = new FlxText(FlxG.width / 6, FlxG.height / 2, 0, '0', 23);
+
+override function create() 
     {
-        codeBoxShit();
+        bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+        bg.scrollFactor.x = 0;
+		bg.scrollFactor.y = 0;
+		bg.setGraphicSize(Std.int(bg.width * 1));
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = true;
 
-        super.create();
-    }
-
-    function codeBoxShit():Void
-    {
-        var secretCodes = new FlxUIInputText(10, 10, 70, _song.song, 8);
-		codeTyped = UI_songTitle;
+        yctp = new FlxSprite().loadGraphic(Paths.image('da schoolhouse/baldi/yctp', 'shared'));
+        yctp.scrollFactor.x = 0;
+		yctp.scrollFactor.y = 0;
+		yctp.setGraphicSize(Std.int(yctp.width * 2));
+		yctp.updateHitbox();
+		yctp.screenCenter();
+		yctp.antialiasing = true;
     }
 }

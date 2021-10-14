@@ -850,7 +850,7 @@ class PlayState extends MusicBeatState
 
 						// WHY WONT IT LOADDDDD
 
-						// WHY WONT IT LOADDDDD L i killed it loser L L L L -alex
+						// L i killed it loser L L L L -alex
 				}*/
 			default:
 			{
@@ -1688,6 +1688,23 @@ class PlayState extends MusicBeatState
 				remove(jump);
 				screenShake = false;
 			});
+		}
+
+		function teleportShit() 
+		{
+			dad.flipX = true;
+			boyfriend.flipX = true;
+			dad.x += 100;
+			boyfriend.x -= 100;
+			FlxG.sound.play(Paths.sound('glitch'), 1, false);
+		
+			new FlxTimer().start(20, function(tmr:FlxTimer)
+				{
+					dad.flipX = false;
+					boyfriend.flipX = false;
+					dad.x -= 100;
+					boyfriend.x += 100;
+				});
 		}
 
 	private function generateSong(dataPath:String):Void
@@ -2588,6 +2605,18 @@ class PlayState extends MusicBeatState
 									glitchyWoh();
 								case 1212:
 									glitchyWoh();
+							}
+					}
+				
+				if (curSong == 'Piracy')
+					{
+						switch (curStep)
+							{
+								case 1024:
+									teleportShit();
+
+								case 1664:
+									teleportShit();
 							}
 					}
 
