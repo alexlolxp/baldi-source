@@ -3130,6 +3130,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								LoadingState.loadAndSwitchState(new CreditsState());
+								trace('note is hit');
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3159,6 +3160,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								LoadingState.loadAndSwitchState(new CreditsState());
+								trace('note is hit');
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3187,6 +3189,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								LoadingState.loadAndSwitchState(new CreditsState());
+								trace('note is hit');
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3221,6 +3224,7 @@ class PlayState extends MusicBeatState
 								if (daNote.noteType == 3)
 									{
 										LoadingState.loadAndSwitchState(new CreditsState());
+										trace('note is hit');
 									}
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
