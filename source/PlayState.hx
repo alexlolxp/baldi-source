@@ -3130,6 +3130,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								LoadingState.loadAndSwitchState(new CreditsState());
+								trace('note is hit');
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3159,6 +3160,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								LoadingState.loadAndSwitchState(new CreditsState());
+								trace('note is hit');
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3187,6 +3189,7 @@ class PlayState extends MusicBeatState
 						if (daNote.noteType == 3)
 							{
 								LoadingState.loadAndSwitchState(new CreditsState());
+								trace('note is hit');
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3206,22 +3209,18 @@ class PlayState extends MusicBeatState
 								health -= 0.6;
 								boyfriend.playAnim('ow', true);
 								misses++;
-								if (daNote.noteType == 2)
-									{
-										FlxG.sound.play(Paths.sound('ruler_slap'), 1, false);
-										health -= 0.6;
-										boyfriend.playAnim('ow', true);
-										screenShake = true;
+								screenShake = true;
 
-										new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											screenShake = false;
-										});
-									}	
-								if (daNote.noteType == 3)
-									{
-										LoadingState.loadAndSwitchState(new CreditsState());
-									}
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+								{
+									screenShake = false;
+								});
+								
+						if (daNote.noteType == 3)
+								{
+									LoadingState.loadAndSwitchState(new CreditsState());
+									trace('note is hit');
+								}
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
