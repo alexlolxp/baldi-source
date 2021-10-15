@@ -1,5 +1,3 @@
-Bopeebo:redbald:1
 Basics:baldihappy:2
 Lesson:baldihappy:2
 Dismissal:baldi:2
-Piracy:redbald:3
