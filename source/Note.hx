@@ -155,7 +155,7 @@ class Note extends FlxSprite
 							}
 							case 2:
 							{
-								frames = Paths.getSparrowAtlas('NOTE_ruler');
+								frames = Paths.getSparrowAtlas('da schoolhouse/notes/NOTE_ruler');
 								animation.addByPrefix('greenScroll', 'green0');
 								animation.addByPrefix('redScroll', 'red0');
 								animation.addByPrefix('blueScroll', 'blue0');
@@ -176,27 +176,27 @@ class Note extends FlxSprite
 								antialiasing = true;
 							}
 							case 3:
-								{
-									frames = Paths.getSparrowAtlas('BSOD_NOTES_ASSETS');
-									animation.addByPrefix('greenScroll', 'bsod green0');
-									animation.addByPrefix('redScroll', 'bsod red0');
-									animation.addByPrefix('blueScroll', 'bsod cyan0');
-									animation.addByPrefix('purpleScroll', 'bsod purple0');
-	 
-									animation.addByPrefix('purpleholdend', 'pruple end hold');
-									animation.addByPrefix('greenholdend', 'green hold end');
-									animation.addByPrefix('redholdend', 'red hold end');
-									animation.addByPrefix('blueholdend', 'blue hold end');
-	 
-									animation.addByPrefix('purplehold', 'purple hold piece');
-									animation.addByPrefix('greenhold', 'green hold piece');
-									animation.addByPrefix('redhold', 'red hold piece');
-									animation.addByPrefix('bluehold', 'blue hold piece');
-	 
-									setGraphicSize(Std.int(width * 0.7));
-									updateHitbox();
-									antialiasing = true;
-								}
+							{
+								frames = Paths.getSparrowAtlas('da schoolhouse/notes/BSOD_NOTES_ASSETS');
+								animation.addByPrefix('greenScroll', 'bsod green0');
+								animation.addByPrefix('redScroll', 'bsod red0');
+								animation.addByPrefix('blueScroll', 'bsod cyan0');
+								animation.addByPrefix('purpleScroll', 'bsod purple0');
+	
+								animation.addByPrefix('purpleholdend', 'pruple end hold');
+								animation.addByPrefix('greenholdend', 'green hold end');
+								animation.addByPrefix('redholdend', 'red hold end');
+								animation.addByPrefix('blueholdend', 'blue hold end');
+	
+								animation.addByPrefix('purplehold', 'purple hold piece');
+								animation.addByPrefix('greenhold', 'green hold piece');
+								animation.addByPrefix('redhold', 'red hold piece');
+								animation.addByPrefix('bluehold', 'blue hold piece');
+	
+								setGraphicSize(Std.int(width * 0.7));
+								updateHitbox();
+								antialiasing = true;
+							}
 							default:
 							{
 								frames = Paths.getSparrowAtlas('NOTE_assets');

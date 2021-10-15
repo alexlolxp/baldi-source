@@ -17,7 +17,7 @@ class CreditsState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('creepercreeper', 'shared'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('da schoolhouse/piracy/piracy baldi/creepercreeper', 'shared'));
 		bg.screenCenter();
 		
 		add(bg);
