@@ -978,6 +978,12 @@ class PlayState extends MusicBeatState
 				dad.y += 100;
 				gf.x += 210;
 				gf.y += 100;
+			
+			case 'unknownfile':
+				boyfriend.x += 300;
+				dad.x -= 300;
+				gf.y += 10000;
+				
 
 			case 'mall':
 				boyfriend.x += 200;
@@ -1694,16 +1700,16 @@ class PlayState extends MusicBeatState
 		{
 			dad.flipX = true;
 			boyfriend.flipX = true;
-			dad.x += 100;
-			boyfriend.x -= 100;
+			dad.x += 190;
+			boyfriend.x -= 200;
 			FlxG.sound.play(Paths.sound('glitch'), 1, false);
 		
 			new FlxTimer().start(20, function(tmr:FlxTimer)
 				{
 					dad.flipX = false;
 					boyfriend.flipX = false;
-					dad.x -= 100;
-					boyfriend.x += 100;
+					dad.x -= 190;
+					boyfriend.x += 200;
 				});
 		}
 
