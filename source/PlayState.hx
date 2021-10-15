@@ -3129,7 +3129,7 @@ class PlayState extends MusicBeatState
 							}
 						if (daNote.noteType == 3)
 							{
-								FlxG.switchState(new CreditsState());
+								LoadingState.loadAndSwitchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3158,7 +3158,7 @@ class PlayState extends MusicBeatState
 							}	
 						if (daNote.noteType == 3)
 							{
-								FlxG.switchState(new CreditsState());
+								LoadingState.loadAndSwitchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3186,7 +3186,7 @@ class PlayState extends MusicBeatState
 							}	
 						if (daNote.noteType == 3)
 							{
-								FlxG.switchState(new CreditsState());
+								LoadingState.loadAndSwitchState(new CreditsState());
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 							{
@@ -3220,7 +3220,7 @@ class PlayState extends MusicBeatState
 									}	
 								if (daNote.noteType == 3)
 									{
-										FlxG.switchState(new CreditsState());
+										LoadingState.loadAndSwitchState(new CreditsState());
 									}
 							}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
