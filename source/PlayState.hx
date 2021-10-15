@@ -2620,9 +2620,6 @@ class PlayState extends MusicBeatState
 							{
 								case 1024:
 									teleportShit();
-
-								case 1664:
-									teleportShit();
 							}
 					}
 
