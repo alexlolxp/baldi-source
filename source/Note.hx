@@ -177,11 +177,11 @@ class Note extends FlxSprite
 							}
 							case 3:
 								{
-									frames = Paths.getSparrowAtlas('NOTE_ruler');
-									animation.addByPrefix('greenScroll', 'green0');
-									animation.addByPrefix('redScroll', 'red0');
-									animation.addByPrefix('blueScroll', 'blue0');
-									animation.addByPrefix('purpleScroll', 'purple0');
+									frames = Paths.getSparrowAtlas('BSOD_NOTES_ASSETS');
+									animation.addByPrefix('greenScroll', 'bsod green0');
+									animation.addByPrefix('redScroll', 'bsod red0');
+									animation.addByPrefix('blueScroll', 'bsod cyan0');
+									animation.addByPrefix('purpleScroll', 'bsod purple0');
 	 
 									animation.addByPrefix('purpleholdend', 'pruple end hold');
 									animation.addByPrefix('greenholdend', 'green hold end');
