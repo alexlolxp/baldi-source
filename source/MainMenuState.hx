@@ -1,5 +1,7 @@
 package;
 
+import flixel.input.keyboard.FlxKeyboard;
+import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepad;
 import Controls.KeyboardScheme;
 import flixel.FlxG;
@@ -49,6 +51,13 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	public static var finishedFunnyMove:Bool = false;
 
+	var theCode:Array<Dynamic> = [
+	[FlxKey.NINE, FlxKey.NUMPADNINE], 
+	[FlxKey.FOUR, FlxKey.NUMPADFOUR], 
+	[FlxKey.ONE, FlxKey.NUMPADONE], 
+	[FlxKey.FIVE, FlxKey.NUMPADFIVE], 
+	[FlxKey.ZERO, FlxKey.NUMPADZERO]];
+	var theCodeOrder:Int = 0;
 	override function create()
 	{
 		#if windows
@@ -181,6 +190,36 @@ class MainMenuState extends MusicBeatState
 		{
 			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
+			if (FlxG.keys.justPressed.ANY) {
+
+				var hitCorrectKey:Bool = false;
+				for (i in 0...theCode[theCodeOrder].length) {
+					if (FlxG.keys.checkStatus(theCode[theCodeOrder][i], JUST_PRESSED))
+						hitCorrectKey = true;
+				}
+				if (hitCorrectKey) {
+					if (theCodeOrder == (theCode.length - 1)) {
+						PlayState.SONG = Song.loadFromJson(Highscore.formatSong('Piracy', 2), 'piracy');
+						PlayState.isStoryMode = false;
+						PlayState.storyDifficulty = 2;
+						LoadingState.loadAndSwitchState(new PlayState());
+					} else {
+						theCodeOrder++;
+						
+					}
+				} else {
+					theCodeOrder = 0;
+					for (i in 0...theCode[0].length) {
+						if (FlxG.keys.checkStatus(theCode[0][i], JUST_PRESSED))
+							theCodeOrder = 1;
+					}
+				}
+
+				if (theCodeOrder == 4)
+					FlxG.sound.muteKeys = null;
+				else
+					FlxG.sound.muteKeys = [FlxKey.ZERO, FlxKey.NUMPADZERO];
+			}
 			if (gamepad != null)
 			{
 				if (gamepad.justPressed.DPAD_UP)
