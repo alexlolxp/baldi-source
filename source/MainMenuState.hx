@@ -176,6 +176,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.fullscreen = !FlxG.fullscreen;
 			}
 
+
 		if (!selectedSomethin)
 		{
 			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;

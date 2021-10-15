@@ -1,5 +1,5 @@
 function update(elapsed)
-    local currentBeat = (songPos / 1000)*(bpm/60)
+    local currentBeat = (songPos / 1000)*(bpm/90)
         if curStep > 256 and curStep < 640 then
             for i=0,7 do
                 setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*0)), i)
