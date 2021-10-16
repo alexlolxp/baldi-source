@@ -22,6 +22,12 @@ function update(elapsed)
                 setActorY(_G['defaultStrum'..i..'Y'] + 32 * math.cos((currentBeat + i*5) * math.pi) + 10 ,i)
             end
         end
+        if curStep > 1411 then
+                setActorX(_G['defaultStrum'..i..'X'])
+        end
+        if curStep > 1024 and curStep < 1282 then
+                setActorX(_G['defaultStrum'..i..'X'])
+        end
     end
 function stepHit (step)
     if curStep == 640 or curStep == 1025 or curStep == 1282 then
