@@ -131,7 +131,7 @@ class TitleState extends MusicBeatState
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
-	var titleText:FlxSprite;
+	//var titleText:FlxSprite;
 
 	function startIntro()
 	{
@@ -165,7 +165,7 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
+		var bg:FlxSprite = new FlxSprite(0, -15).loadGraphic(Paths.image('da schoolhouse/baldi/title_bg', 'shared'));
 		// bg.antialiasing = true;
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
@@ -178,7 +178,7 @@ class TitleState extends MusicBeatState
 			logoBl.animation.addByPrefix('bump', 'FART', 24);
 			logoBl.animation.play('bump');
 			logoBl.updateHitbox();
-			// logoBl.screenCenter();
+			logoBl.screenCenter(X);
 			// logoBl.color = FlxColor.BLACK;
 		} else {
 			logoBl = new FlxSprite(-150, -100);
@@ -199,7 +199,7 @@ class TitleState extends MusicBeatState
 		add(gfDance);
 		add(logoBl);
 
-		titleText = new FlxSprite(100, FlxG.height * 0.8);
+		/*titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
 		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
 		titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
@@ -207,7 +207,7 @@ class TitleState extends MusicBeatState
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
 		// titleText.screenCenter(X);
-		add(titleText);
+		add(titleText);*/
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logo.screenCenter();
@@ -301,8 +301,8 @@ class TitleState extends MusicBeatState
 				NGio.unlockMedal(61034);
 			#end
 
-			if (FlxG.save.data.flashing)
-				titleText.animation.play('press');
+			//if (FlxG.save.data.flashing)
+				//titleText.animation.play('press');
 
 			FlxG.camera.flash(FlxColor.WHITE, 1);
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
