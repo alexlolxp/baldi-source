@@ -132,6 +132,7 @@ class TitleState extends MusicBeatState
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
 	//var titleText:FlxSprite;
+	var entertext:FlxText;
 
 	function startIntro()
 	{
@@ -167,7 +168,7 @@ class TitleState extends MusicBeatState
 
 		var bg:FlxSprite = new FlxSprite(0, -15).loadGraphic(Paths.image('da schoolhouse/baldi/title_bg', 'shared'));
 		// bg.antialiasing = true;
-		// bg.setGraphicSize(Std.int(bg.width * 0.6));
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		// bg.updateHitbox();
 		add(bg);
 
@@ -178,7 +179,7 @@ class TitleState extends MusicBeatState
 			logoBl.animation.addByPrefix('bump', 'FART', 24);
 			logoBl.animation.play('bump');
 			logoBl.updateHitbox();
-			logoBl.screenCenter(X);
+			logoBl.screenCenter();
 			// logoBl.color = FlxColor.BLACK;
 		} else {
 			logoBl = new FlxSprite(-150, -100);
