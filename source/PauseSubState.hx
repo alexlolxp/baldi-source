@@ -156,7 +156,7 @@ class PauseSubState extends MusicBeatSubstate
 				{
 					grpMenuShit.clear();
 
-					menuItems = ['Restart Song', 'Exit to menu'];
+					menuItems = ['Resume', 'Restart Song', 'Exit to menu'];
 
 					for (i in 0...menuItems.length)
 					{
@@ -181,7 +181,7 @@ class PauseSubState extends MusicBeatSubstate
 				{
 					grpMenuShit.clear();
 
-					menuItems = ['Restart Song', 'Exit to menu'];
+					menuItems = ['Resume', 'Restart Song', 'Exit to menu'];
 
 					for (i in 0...menuItems.length)
 					{
