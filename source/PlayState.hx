@@ -4342,6 +4342,7 @@ class PlayState extends MusicBeatState
 	}
 
 	var curLight:Int = 0;
+	
 	function crashLol() {
 			resyncingVocals = false;
 			persistentUpdate = false;
